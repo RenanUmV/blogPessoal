@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -32,6 +33,7 @@ public class Usuario {
 	@ApiModelProperty(example = "email@email.com.br")
 	@NotNull
 	@Size(min = 5, max = 100)
+	@Email(message = "O atributo Usuário deve ser um email válido!")
 	private String usuario;
 	
 	@NotNull
