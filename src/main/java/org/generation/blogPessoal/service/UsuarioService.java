@@ -48,11 +48,12 @@ public class UsuarioService {
 
 		if (usuario.isPresent()) {
 			if (compararSenhas(userLogin.get().getSenha(), usuario.get().getSenha())) {
+				userLogin.get().setToken(generatorBasicToken(userLogin.get().getUsuario(), userLogin.get().getSenha()));
 				userLogin.get().setId(usuario.get().getId());				
 				userLogin.get().setNome(usuario.get().getNome());
 				userLogin.get().setFoto(usuario.get().getFoto());
 				userLogin.get().setSenha(usuario.get().getSenha());
-				userLogin.get().setToken(generatorBasicToken(userLogin.get().getUsuario(), userLogin.get().getSenha()));
+				
 
 				return userLogin;
 			}
